@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Showroom</title>
+    <link rel="stylesheet" href="cartharun.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Cars</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </div>
+        <div class="col2">
+            <h1>Welcome to Car Showroom</h1>
+        </div>
+        <div class="con">
+            <div class="row1">
+                <form action="">
+                    <div>
+                        <label for="name">NAME:</label>
+                        <input type="text" id="name" class="tf" required placeholder="Enter Name">
+                        <div class="error"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="ph">PHONE:</label>
+                        <input type="number" id="ph" class="tf" required placeholder="Enter Number">
+                        <div class="error"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="mail">EMAIL:</label>
+                        <input type="email" id="mail" class="tf" required placeholder="Enter Email">
+                        <div class="error"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <label>Car Models Interested In:</label>
+                        <input type="checkbox" id="a" name="CAR" value="Hyundai Creta"><label for="a">Hyundai Creta</label>
+                        <input type="checkbox" id="b" name="CAR" value="Tata Nexon"><label for="b">Tata Nexon</label>
+                        <br>
+                        <input type="checkbox" id="c" name="CAR" value="Maruti Swift"><label for="c">Maruti Swift</label>
+                        <div class="error"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <label>Car Type:</label>
+                        <input type="radio" id="suv" name="type" value="SUV"><label for="suv">SUV</label>
+                        <input type="radio" id="sedan" name="type" value="Sedan"><label for="sedan">Sedan</label>
+                        <input type="radio" id="hatchback" name="type" value="Hatchback"><label for="hatchback">Hatchback</label>
+                        <div class="error"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <label>Preferred Showroom Location:</label>
+                        <select id="location">
+                            <option value="">Select Here</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                        </select>
+                        <div class="error"></div>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" onclick="submitData()">Submit</button>
+                    </div>
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitData(){
+            let names = document.getElementById("name");
+            let finalname = names.value;
+
+            let number = document.getElementById("ph");
+            let finalnumber = number.value;
+
+            let email = document.getElementById("mail");
+            let finalemail = email.value;
+
+            let cars = document.getElementsByName("CAR");
+            let selectedCars = [];
+            for(let car of cars){
+                if(car.checked){
+                    selectedCars.push(car.value);
+                }
+            }
+
+            let types = document.getElementsByName("type");
+            let selectedType = "";
+            for(let t of types){
+                if(t.checked){
+                    selectedType = t.value;
+                }
+            }
+
+            let location = document.getElementById("location");
+            let selectedLocation = location.value;
+
+            console.log(finalname, finalnumber, finalemail, selectedCars, selectedType, selectedLocation);
+
+            // Validation
+            if(finalname === ''){
+                setError(names, "Name is required");
+            } else {
+                setSuccess(names);
+            }
+
+            if(finalnumber === ''){
+                setError(number, "Phone number is required");
+            } else {
+                setSuccess(number);
+            }
+
+            if(finalemail === ''){
+                setError(email, "Email is required");
+            } else {
+                setSuccess(email);
+            }
+
+            if(selectedCars.length === 0){
+                setError(cars[0], "Select at least one car model");
+            } else {
+                setSuccess(cars[0]);
+            }
+
+            if(selectedType === ''){
+                setError(types[0], "Select a car type");
+            } else {
+                setSuccess(types[0]);
+            }
+
+            if(selectedLocation === ''){
+                setError(location, "Select a showroom location");
+            } else {
+                setSuccess(location);
+            }
+        }
+
+        function setError(element, msg){
+            let parent = element.parentElement;
+            let error = parent.querySelector(".error");
+            error.innerText = msg;
+        }
+
+        function setSuccess(element){
+            let parent = element.parentElement;
+            let error = parent.querySelector(".error");
+            error.innerText = '';
+        }
+    </script>
+</body>
+</html>

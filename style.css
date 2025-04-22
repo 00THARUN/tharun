@@ -1,0 +1,137 @@
+/* Background and general setup */
+body {
+   background-image: url(tarunbmw.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation and header */
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items:;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.col1 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.col1 li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.col2 {
+    font-size: 22px;
+    color: #00d9ff;
+}
+
+/* Form container */
+.con {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    width: 450px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+}
+
+/* Input fields */
+.tf {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+}
+
+/* Dropdown */
+#location {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #0077ff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #005ecb;
+}
+
+/* Error messages */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .col2 {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .row1 {
+        width: 90%;
+    }
+
+    a {
+        font-size: 16px;
+    }
+}
